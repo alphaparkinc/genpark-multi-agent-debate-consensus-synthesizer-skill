@@ -1,0 +1,48 @@
+{
+  "name": "genpark-multi-agent-debate-consensus-synthesizer-skill",
+  "version": "1.0.0",
+  "description": "Multi-Agent Divergence-Convergence Debate Engine (MAD / Society of Mind). Coordinates multiple specialized personas to debate high-stakes decisions and aggregate into an explainable consensus with dissenting minority logs.",
+  "tools": [
+    {
+      "name": "orchestrate_multi_agent_debate",
+      "description": "Run multi-persona agent debate rounds, evaluate convergence, and synthesize consensus verdict.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "run_debate",
+              "evaluate_convergence",
+              "synthesize_verdict"
+            ],
+            "description": "Debate orchestration action."
+          },
+          "topic": {
+            "type": "string",
+            "description": "The decision or dilemma to debate."
+          },
+          "personas": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "List of debate persona roles (e.g. ['RiskAuditor', 'SpeedOptimizer', 'UserAdvocate'])."
+          },
+          "rounds": {
+            "type": "integer",
+            "description": "Number of debate rounds (default 2)."
+          },
+          "arguments": {
+            "type": "object",
+            "description": "Dictionary of persona arguments for manual evaluation or external injection."
+          }
+        },
+        "required": [
+          "action",
+          "topic"
+        ]
+      }
+    }
+  ]
+}
